@@ -1,11 +1,16 @@
 machine:
   node:
     version: 4.0.0
+  services:
+    - docker
 dependencies:
   override:
     - npm install --production
+  pre:
+    - mkdir -p public/misc
   cache_directories:
     - "node_modules"    # relative to the build directory
+test: 
   post: 
     - sh scripts/gen-hash.sh
     - sh scripts/wrap-docker.sh
