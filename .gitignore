@@ -1,0 +1,7 @@
+node_modules
+packages/*/node_modules
+coverage
+apidocs/
+hash.json
+version.json
+
