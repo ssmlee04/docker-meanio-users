@@ -4,12 +4,6 @@ machine:
 dependencies:
   override:
     - npm install --production
-  pre:
-    - ln -s /opt/circleci/.pyenv /home/ubuntu/.pyenv
-    - sudo apt-get install python-pip
-    - mkdir -p public/misc
-    - npm i -g raml2html
-    - mkdir apidocs
   cache_directories:
     - "node_modules"    # relative to the build directory
   post: 

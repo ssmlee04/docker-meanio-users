@@ -7,7 +7,7 @@ var FacebookTokenStrategy = require('passport-facebook-token').Strategy
 var User = mongoose.model('User')
 var config = require('meanio').getConfig()
 var Promise = require('bluebird')
-var _ = require('lodash')
+// var _ = require('lodash')
 var randomstring = require('randomstring')
 
 module.exports = function(passport) {

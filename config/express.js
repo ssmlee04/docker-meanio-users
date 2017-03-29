@@ -4,13 +4,14 @@
  * Module dependencies.
  */
 var mean = require('meanio')
-var winston = require('winston')
+// var winston = require('winston')
 var compression = require('compression')
 var morgan = require('morgan')
 var express = require('express')
 var config = mean.loadConfig()
-var session = require('express-session')
-var redisStore = require('connect-redis')(session)
+// var session = require('express-session')
+// var redisStore = require('connect-redis')(session)
+var bodyParser = require('body-parser')
 
 if (config.isBigConsolelog) {
   require('./../config/console')
@@ -38,6 +39,12 @@ module.exports = function(app, db) {
   // Adding robots and humans txt
   app.use('/public', express.static(config.root + '/public'))
   
+  // parse application/x-www-form-urlencoded
+  app.use(bodyParser.urlencoded({ extended: false }))
+
+  // parse application/json
+  app.use(bodyParser.json())
+
   // Only use logger for development environment
   app.use(morgan('dev'))
 }
